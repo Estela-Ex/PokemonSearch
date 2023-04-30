@@ -18,7 +18,7 @@ export default function PokemonView({ pokemon }) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${newPokemon}`)
         .then((response) => response.json())
         .then((data) => setPokemonProducts(data.sprites.front_default))
-        .catch(()=>setMessage("El Pokemon introducido no existe"))
+        .catch(() => { setPokemonProducts(""); setMessage("El Pokemon introducido no existe") })
     }
     }, [newPokemon])
 
