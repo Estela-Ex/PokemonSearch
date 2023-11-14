@@ -1,14 +1,32 @@
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  PokemonLoginContext,
+  PokemonLoginContextProvider,
+} from "./context/PokemonLoginContext";
+import PokemonView from "./views/PokemonView/PokemonView";
+import ZetaPokemon from "./ZetaPokemon";
+import BarPokemon from "./BarPokemon";
 
-import './App.css'
-import PokemonView from './views/PokemonView/PokemonView'
-
-export default  function App() {
+export default function App() {
   return (
-    <div>
-      <h1>Elige tu Pokemon favorito</h1>
-      <PokemonView/>
-</div>
-  )
+    <PokemonLoginContextProvider>
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <BarPokemon />
+                  <ZetaPokemon />
+                </>
+              }
+            />
+            <Route path="/PokemonView" element={<PokemonView />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </PokemonLoginContextProvider>
+  );
 }
-
-

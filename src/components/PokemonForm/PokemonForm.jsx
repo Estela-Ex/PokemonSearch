@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function PokemonForm({setState}) {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemon, setPokemon] = useState("");
 
   
   function addPokemon() {
